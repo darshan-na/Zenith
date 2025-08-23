@@ -1,0 +1,2 @@
+# About Me
+Hi, I'm Darshan. Welcome to my personal site! I'm a Software Engineer at Couchbase working for the XDCR (Cross Data Center Replication) team and I'm passionate about Distributed Systems. This site showcases my projects and thoughts through blog posts.
