@@ -6,7 +6,7 @@
 std::string MarkdownParser::parse_markdown(const std::string& markdown) {
     auto content = markdown.c_str();
     cmark_node* doc = cmark_parse_document(content, markdown.size(), CMARK_OPT_DEFAULT);
-    char* html = cmark_render_html(doc, CMARK_OPT_DEFAULT, nullptr);
+    char* html = cmark_render_html(doc, CMARK_OPT_UNSAFE, nullptr);
     std::string result(html);
     cmark_node_free(doc);
     free(html);
