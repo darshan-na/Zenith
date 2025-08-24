@@ -13,10 +13,16 @@ A C++ static site generator for a personal site.
 2. Install dependencies:
    - cmark-gfm: `sudo apt-get install libcmark-gfm-dev` (Ubuntu) or equivalent.
    - tinyxml2: `sudo apt-get install libtinyxml2-dev` (Ubuntu) or equivalent.
-3. Create a `lib/` directory and add cmark-gfm and tinyxml2 (or use git submodules).
-4. Build the project:
+3. Build the project:
    ```bash
    mkdir build && cd build
    cmake ..
    make
-5. ./zenith
+4. cd into the project directory:
+```bash
+   cd ..
+```
+5. Execute the binary
+```bash
+   ./build/zenith
+```
