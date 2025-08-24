@@ -110,7 +110,7 @@ int main() {
             }
         }
         std::string tag_content = page_gen.generate_post_list(tagged_posts,true);
-        page_gen.generate_page("blogs.html", {{"content", "<h1>Posts tagged '" + tag.first + "'</h1>" + tag_content}}, 
+        page_gen.generate_page("tags.html", {{"content", tag_content},{"tag", tag.first}}, 
             output_dir + "/blogs/tag/" + FileUtils::slugify(tag.first) + ".html");
     }
 
