@@ -2,6 +2,7 @@
 #define MARKDOWN_PARSER_H
 #include <string>
 #include <map>
+#include <vector>
 
 class MarkdownParser {
 public:

@@ -1,11 +1,39 @@
+:root {
+    --bg-color: #f8f9fa; /* Light background */
+    --text-color: #333; /* Light text */
+    --link-color: #007bff; /* Blue links */
+    --link-hover-color: #0056b3;
+    --card-bg: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+    --navbar-bg: #f8f9fa;
+    --navbar-shadow: rgba(0, 0, 0, 0.1);
+    --footer-bg: #f8f9fa;
+    --footer-border: #e7e7e7;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a; /* Dark background */
+    --text-color: #e0e0e0; /* Light text */
+    --link-color: #66b0ff; /* Lighter blue links */
+    --link-hover-color: #3388ff;
+    --card-bg: #2c2c2c;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --navbar-bg: #2c2c2c;
+    --navbar-shadow: rgba(0, 0, 0, 0.3);
+    --footer-bg: #2c2c2c;
+    --footer-border: #444444;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--navbar-bg);
+    box-shadow: 0 2px 4px var(--navbar-shadow);
 }
 
 .navbar-brand {
@@ -13,18 +41,19 @@ body {
 }
 
 .nav-link {
-    color: #007bff !important;
+    color: var(--link-color) !important;
     transition: color 0.3s;
 }
 
 .nav-link:hover {
-    color: #0056b3 !important;
+    color: var(--link-hover-color) !important;
 }
 
 .card {
+    background-color: var(--card-bg);
     border: none;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    box-shadow: 0 2px 8px var(--card-shadow);
+    transition: transform 0.2s, background-color 0.3s;
 }
 
 .card:hover {
@@ -36,6 +65,67 @@ body {
 }
 
 footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #e7e7e7;
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--footer-border);
+}
+
+/* Toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.theme-toggle:hover {
+    color: var(--link-hover-color);
+}
+
+/* Add for blogs list */
+ul.tag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.tag-list li {
+    margin-right: 10px;
+}
+
+ul.tag-list a {
+    color: #666;
+    text-decoration: none;
+}
+
+ul.tag-list a:hover {
+    text-decoration: underline;
+}
+
+h2, h3 {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+.tags {
+    font-size: 0.8rem;
+    color: #888;
 }

@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <chrono>
 
 class PageGenerator {
 public:
@@ -10,8 +11,9 @@ public:
     void generate_page(const std::string& template_name, 
                      const std::map<std::string, std::string>& data, 
                      const std::string& output_path);
-    std::string generate_project_list(const std::vector<std::pair<std::string, std::string>>& projects);
-    std::string generate_post_list(const std::vector<std::pair<std::string, std::string>>& posts);
+    std::string generate_project_list(const std::vector<std::map<std::string, std::string>>& projects);
+    std::string generate_post_list(const std::vector<std::map<std::string, std::string>>& posts,bool for_tag);
+    std::string generate_tag_list(const std::map<std::string,int>& tags, bool include_count = false);
 
 private:
     std::string template_dir_;

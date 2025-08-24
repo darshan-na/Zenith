@@ -20,6 +20,7 @@ add_executable(zenith
     src/page_generator.cpp
     src/rss_generator.cpp
     src/file_utils.cpp
+    src/utils.cpp
 )
 
 target_link_libraries(zenith PRIVATE ${CMARK_GFM_LIB} ${TINYXML2_LIB})
