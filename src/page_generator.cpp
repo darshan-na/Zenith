@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <sstream>
 #include <algorithm>
+#define DefaultTitle "Darshan N A"
 
 // Constructor
 PageGenerator::PageGenerator(const std::string &template_dir) : template_dir_(template_dir) {}
@@ -42,7 +43,7 @@ void PageGenerator::generate_page(const std::string &template_name,
     std::string page_template = load_template(template_name);
     std::string content = replace_placeholders(page_template, data);
     std::map<std::string, std::string> base_data = {{"content", content}};
-    base_data["title"] = data.count("title") ? data.at("title") : "My Site";
+    base_data["title"] = data.count("title") ? data.at("title") : DefaultTitle;
     std::string final_content = replace_placeholders(base_template, base_data);
     FileUtils::write_file(output_path, final_content);
 }
@@ -86,7 +87,7 @@ std::string PageGenerator::generate_post_list(const std::vector<std::map<std::st
         }
         list += "<li><strong>" + date_str + "</strong><br>" +
                 "<a href='/blogs/" + FileUtils::slugify(title) + ".html'>" + title + "</a><br>" +
-                description + "<br>" + tags_html + "<br>" + "</li>";
+                description + "<br>" + tags_html  + "</li>";
     }
     return "<ul>" + list + "</ul>";
 }

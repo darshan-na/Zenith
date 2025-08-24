@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const html = document.documentElement;
 
     // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
     updateToggleIcon(savedTheme);
 
@@ -18,6 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateToggleIcon(theme) {
-        toggleButton.textContent = theme === 'light' ? '🌙' : '☀️';
+        toggleButton.textContent = theme === 'light' ? '🌙' : '🔆'; // Cool moon for dark, bright sun for light
     }
 });

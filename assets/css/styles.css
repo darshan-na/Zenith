@@ -1,110 +1,145 @@
 :root {
-    --bg-color: #f8f9fa; /* Light background */
-    --text-color: #333; /* Light text */
-    --link-color: #007bff; /* Blue links */
-    --link-hover-color: #0056b3;
-    --card-bg: #ffffff;
-    --card-shadow: rgba(0, 0, 0, 0.1);
-    --navbar-bg: #f8f9fa;
+    --bg-color: #fafafa; /* Soft off-white for light mode, inspired by Overreacted.io's clean look */
+    --text-color: #222222; /* Deep gray for readability */
+    --link-color: #008080; /* Teal-blue accents, modern and calm (Jakob Greenfeld influence) */
+    --link-hover-color: #006666; /* Darker teal on hover */
+    --card-bg: #ffffff; /* Not used, but kept for compatibility */
+    --card-shadow: rgba(0, 0, 0, 0.05); /* Subtle shadow if needed */
+    --navbar-bg: #ffffff; /* White navbar for seamless blend */
     --navbar-shadow: rgba(0, 0, 0, 0.1);
-    --footer-bg: #f8f9fa;
-    --footer-border: #e7e7e7;
+    --footer-bg: #fafafa;
+    --footer-border: #eeeeee; /* Lighter border */
+    --button-bg: #008080; /* Matching teal for buttons */
+    --button-text: #ffffff;
+    --button-hover-bg: #006666;
+    --tag-bg: #b36e04; /* Suggested orange for light mode tags */
+    --tag-text: #ffffff; /* White text for contrast */
+    --tag-hover-bg: #906621; /* Darker orange on hover */
+    --tag-border: #b36e04;
 }
 
 [data-theme="dark"] {
-    --bg-color: #1a1a1a; /* Dark background */
-    --text-color: #e0e0e0; /* Light text */
-    --link-color: #66b0ff; /* Lighter blue links */
-    --link-hover-color: #3388ff;
-    --card-bg: #2c2c2c;
+    --bg-color: #121212; /* Charcoal dark background, inspired by 2025 trends (Awwwards) */
+    --text-color: #dddddd; /* Light gray text for high contrast */
+    --link-color: #00b3b3; /* Cyan-blue accents for cool, techy feel (Lea Verou influence) */
+    --link-hover-color: #008080; /* Teal on hover */
+    --card-bg: #1e1e1e;
     --card-shadow: rgba(0, 0, 0, 0.3);
-    --navbar-bg: #2c2c2c;
+    --navbar-bg: #1e1e1e;
     --navbar-shadow: rgba(0, 0, 0, 0.3);
-    --footer-bg: #2c2c2c;
-    --footer-border: #444444;
+    --footer-bg: #1e1e1e;
+    --footer-border: #333333;
+    --button-bg: #00b3b3; /* Cyan for buttons in dark */
+    --button-text: #121212;
+    --button-hover-bg: #008080;
+    --tag-bg: #004d99; /* Shade of blue for dark mode tags (navy blue for tech feel) */
+    --tag-text: #ffffff;
+    --tag-hover-bg: #003366; /* Darker blue on hover */
+    --tag-border: #004d99;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', 'Arial', sans-serif; /* Modern Inter font for better typography */
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s, color 0.3s;
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 .navbar {
     background-color: var(--navbar-bg);
     box-shadow: 0 2px 4px var(--navbar-shadow);
+    padding: 1rem 0; /* More paddinfg for airiness */
 }
 
 .navbar-brand {
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--text-color); /* Explicitly use theme text color */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.navbar-brand:hover {
+    color: var(--link-color);   /* use your theme's link color */
+    transform: scale(1.03);     /* gentle zoom */
 }
 
 .nav-link {
     color: var(--link-color) !important;
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s;
+    font-weight: 500;
+    margin-left: 1rem;
 }
 
 .nav-link:hover {
     color: var(--link-hover-color) !important;
-}
-
-.card {
-    background-color: var(--card-bg);
-    border: none;
-    box-shadow: 0 2px 8px var(--card-shadow);
-    transition: transform 0.2s, background-color 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-1px); /* Subtle lift on hover */
 }
 
 .container {
-    max-width: 900px;
+    max-width: 800px;
+    padding: 0 1rem; /* Better mobile padding */
 }
 
 footer {
     background-color: var(--footer-bg);
     border-top: 1px solid var(--footer-border);
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    color: #888888; /* Subtle footer text */
 }
 
-/* Toggle button */
-.theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 1rem;
     color: var(--text-color);
 }
 
-.theme-toggle:hover {
-    color: var(--link-hover-color);
+h1 {
+    font-size: 2.5rem;
 }
 
-/* Add for blogs list */
+h2 {
+    font-size: 1.8rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+/* Blogs and Projects list styling (clutter-free) */
 ul.tag-list {
     list-style: none;
+    border: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    gap: 0.5rem; /* Better spacing */
 }
 
 ul.tag-list li {
-    margin-right: 10px;
+    margin: 0;
+    border: none;
 }
 
-ul.tag-list a {
-    color: #666;
-    text-decoration: none;
+.tag-button {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--tag-border);
+    border-radius: 20px; /* Pill shape for modern look */
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    min-width: 100px; /* Consistent width for alignment */
+    text-align: center;
 }
 
-ul.tag-list a:hover {
-    text-decoration: underline;
-}
-
-h2, h3 {
-    margin-top: 20px;
+.tag-button:hover {
+    background-color: var(--tag-hover-bg);
+    transform: scale(1.05); /* Slight zoom for interactivity */
 }
 
 ul {
@@ -113,19 +148,73 @@ ul {
 }
 
 ul li {
-    margin-bottom: 10px;
+    margin-bottom: 2rem; /* More space between entries */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--footer-border); /* Subtle separator */
+}
+
+ul li strong {
+    font-size: 1rem;
+    color: #666666; /* Muted date color */
 }
 
 ul li a {
     color: var(--link-color);
     text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 ul li a:hover {
     text-decoration: underline;
+    color: var(--link-hover-color);
 }
 
 .tags {
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 0.9rem;
+    color: #777777; /* Muted tags */
+    margin-top: 0.5rem;
+    display: block;
+}
+
+/* Theme toggle icon (cool versions) */
+.theme-toggle {
+    font-size: 1.4rem; /* Larger for visibility */
+    padding: 0.5rem;
+    border-radius: 50%; /* Circular button */
+    background-color: transparent;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+.navbar-nav .nav-link {
+    border: none !important;
+    text-decoration: none !important;
+}
+.navbar-nav .nav-item {
+    border: none !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.navbar-nav {
+    margin-top: 50px;   /* adjust as needed */
+}
+
+.navbar {
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+}
+
+.navbar .theme-toggle {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
 }
