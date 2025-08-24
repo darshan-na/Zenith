@@ -50,7 +50,7 @@ int main() {
         }
     }
     // Generate projects/index.html
-    page_gen.generate_page("projects.html", {{"content", page_gen.generate_project_list(projects)}}, 
+    page_gen.generate_page("projects_index.html", {{"content", page_gen.generate_project_list(projects)}}, 
         output_dir + "/projects/index.html");
 
     // Generate blog pages

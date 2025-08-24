@@ -16,6 +16,7 @@
     --tag-text: #ffffff; /* White text for contrast */
     --tag-hover-bg: #906621; /* Darker orange on hover */
     --tag-border: #b36e04;
+    --tech-color: #035a3d; /* Color for technologies used */
 }
 
 [data-theme="dark"] {
@@ -36,6 +37,7 @@
     --tag-text: #ffffff;
     --tag-hover-bg: #003366; /* Darker blue on hover */
     --tag-border: #004d99;
+    --tech-color: #157454; /* Color for technologies used */
 }
 
 body {
@@ -79,7 +81,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1000px;
     padding: 0 1rem; /* Better mobile padding */
 }
 
@@ -145,12 +147,14 @@ ul.tag-list li {
 ul {
     list-style: none;
     padding-left: 0;
+    border: none;
 }
 
 ul li {
     margin-bottom: 2rem; /* More space between entries */
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--footer-border); /* Subtle separator */
+    border: none;
 }
 
 ul li strong {
@@ -217,4 +221,9 @@ ul li a:hover {
     display: flex;
     align-items: center;
     font-size: 1rem;
+}
+
+.technologies_used {
+    color: #157454; /* Change to any color you like */
+    font-weight: bold; /* Optional: make it stand out */
 }

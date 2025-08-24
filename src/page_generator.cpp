@@ -51,8 +51,11 @@ void PageGenerator::generate_page(const std::string &template_name,
 // Generate a HTML list of projects
 std::string PageGenerator::generate_project_list(const std::vector<std::map<std::string, std::string>> &projects)
 {
+    auto sorted_projects = projects;
+    std::sort(sorted_projects.begin(), sorted_projects.end(), [](const auto &a, const auto &b)
+              { return a.at("date") > b.at("date"); });
     std::string list;
-    for (const auto &project : projects)
+    for (const auto &project : sorted_projects)
     {
         list += "<li><strong>" + project.at("date") + "</strong><br>" +
                 "<a href='/projects/" + FileUtils::slugify(project.at("title")) + ".html'>" + project.at("title") + "</a><br>" +
