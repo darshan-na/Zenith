@@ -16,23 +16,26 @@ int main() {
     const std::string output_dir = "public";
     const std::string template_dir = "src/templates";
     const std::string assets_dir = "assets";
-    // remove the public directory if existing
+    // remove the output/target directory if existing
     fs::remove_all(output_dir);
+    // create the output/target directory structure
     fs::create_directories(output_dir);
     fs::create_directories(output_dir + "/blogs");
     fs::create_directories(output_dir + "/projects");
     fs::create_directories(output_dir + "/blogs/tag");
 
+    // copy the css and scripts.js file
     FileUtils::copy_directory(assets_dir, output_dir + "/assets");
 
+    // Initialize the page generator
     PageGenerator page_gen(template_dir);
 
-    // About page
+    // AboutMe page
     std::string aboutme_content = FileUtils::read_file(content_dir + "/aboutme.md");
     std::string aboutme_html = MarkdownParser::parse_markdown(aboutme_content);
     page_gen.generate_page("aboutme.html", {{"content", aboutme_html}}, output_dir + "/index.html");
 
-    // Projects
+    // Generate Individual projects page
     std::vector<std::map<std::string, std::string>> projects;
     for (const auto& entry : fs::directory_iterator(content_dir + "/projects")) {
         if (entry.path().extension() == ".md") {
@@ -46,10 +49,11 @@ int main() {
                 output_dir + "/projects/" + slug + ".html");
         }
     }
+    // Generate projects/index.html
     page_gen.generate_page("projects.html", {{"content", page_gen.generate_project_list(projects)}}, 
         output_dir + "/projects/index.html");
 
-    // Blogs
+    // Generate blog pages
     std::vector<RSSItem> rss_items;
     std::vector<std::map<std::string, std::string>> all_posts;
     std::map<std::string, int> tag_count;
@@ -92,7 +96,6 @@ int main() {
     }
 
     // Generate blogs/index.html with grouped list and tag list
- 
     std::string tag_list = page_gen.generate_tag_list(tag_count,true);
     std::string grouped_list = page_gen.generate_post_list(all_posts,false);
     page_gen.generate_page("blogs_index.html", {{"frequent_tags", tag_list}, {"content", grouped_list}}, 

@@ -1,5 +1,4 @@
-#ifndef PAGE_GENERATOR_H
-#define PAGE_GENERATOR_H
+#pragma once
 #include <string>
 #include <map>
 #include <vector>
@@ -21,5 +20,3 @@ private:
     std::string replace_placeholders(const std::string& template_content, 
                                    const std::map<std::string, std::string>& data);
 };
-
-#endif

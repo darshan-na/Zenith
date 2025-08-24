@@ -6,13 +6,16 @@
 #include <sstream>
 #include <algorithm>
 
+// Constructor
 PageGenerator::PageGenerator(const std::string &template_dir) : template_dir_(template_dir) {}
 
+// Load a template file
 std::string PageGenerator::load_template(const std::string &template_name)
 {
     return FileUtils::read_file(template_dir_ + "/" + template_name);
 }
 
+// Replace placeholders in the template with actual data
 std::string PageGenerator::replace_placeholders(const std::string &template_content,
                                                 const std::map<std::string, std::string> &data)
 {
@@ -30,6 +33,7 @@ std::string PageGenerator::replace_placeholders(const std::string &template_cont
     return result;
 }
 
+// Generate a page from a template - combines the base template with the page-specific content
 void PageGenerator::generate_page(const std::string &template_name,
                                   const std::map<std::string, std::string> &data,
                                   const std::string &output_path)
@@ -43,6 +47,7 @@ void PageGenerator::generate_page(const std::string &template_name,
     FileUtils::write_file(output_path, final_content);
 }
 
+// Generate a HTML list of projects
 std::string PageGenerator::generate_project_list(const std::vector<std::map<std::string, std::string>> &projects)
 {
     std::string list;
@@ -55,6 +60,7 @@ std::string PageGenerator::generate_project_list(const std::vector<std::map<std:
     return "<ul>" + list + "</ul>";
 }
 
+// Generate a HTML list of blog posts
 std::string PageGenerator::generate_post_list(const std::vector<std::map<std::string, std::string>> &posts, bool for_tag)
 {
     std::string list;
@@ -85,15 +91,7 @@ std::string PageGenerator::generate_post_list(const std::vector<std::map<std::st
     return "<ul>" + list + "</ul>";
 }
 
-// std::string PageGenerator::generate_tag_list(const std::vector<std::string>& tags) {
-//     std::string list = "<ul class='tag-list'>";
-//     for (const auto& tag : tags) {
-//         list += "<li><a href='/blogs/tag/" + FileUtils::slugify(tag) + ".html'>" + tag + "</a></li>";
-//     }
-//     list += "</ul>";
-//     return list;
-// }
-
+// Generate a HTML list of tags
 std::string PageGenerator::generate_tag_list(const std::map<std::string,int> &tags, bool include_count)
 {
     std::string list = "<ul class='tag-list'>";

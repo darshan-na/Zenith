@@ -2,6 +2,7 @@
 #include <cmark-gfm.h>
 #include <regex>
 
+// Parse the markdown content and convert it to HTML
 std::string MarkdownParser::parse_markdown(const std::string& markdown) {
     auto content = markdown.c_str();
     cmark_node* doc = cmark_parse_document(content, markdown.size(), CMARK_OPT_DEFAULT);
@@ -12,6 +13,7 @@ std::string MarkdownParser::parse_markdown(const std::string& markdown) {
     return result;
 }
 
+// Extract the metadata section from the markdown content
 std::map<std::string, std::string> MarkdownParser::extract_front_matter(std::string& markdown) {
     std::map<std::string, std::string> metadata;
     std::regex front_matter_regex(R"(---\n([\s\S]*?)\n---\n)");

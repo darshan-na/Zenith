@@ -1,5 +1,4 @@
-#ifndef FILE_UTILS_H
-#define FILE_UTILS_H
+#pragma once
 #include <string>
 #include <filesystem>
 
@@ -10,5 +9,3 @@ public:
     static void copy_directory(const std::string& src, const std::string& dst);
     static std::string slugify(const std::string& text);
 };
-
-#endif

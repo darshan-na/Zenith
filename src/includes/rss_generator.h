@@ -1,5 +1,4 @@
-#ifndef RSS_GENERATOR_H
-#define RSS_GENERATOR_H
+#pragma once
 #include <string>
 #include <vector>
 
@@ -14,5 +13,3 @@ class RSSGenerator {
 public:
     static void generate_rss(const std::vector<RSSItem>& items, const std::string& output_path);
 };
-
-#endif
