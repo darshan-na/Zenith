@@ -13,6 +13,8 @@ A C++ static site generator for a personal site.
 2. Install dependencies:
    - cmark-gfm: `sudo apt-get install libcmark-gfm-dev` (Ubuntu) or equivalent.
    - tinyxml2: `sudo apt-get install libtinyxml2-dev` (Ubuntu) or equivalent.
+   - yamp-cpp  `sudo apt install libyaml-cpp-dev`    (Ubuntu) or equivalent.
+3. Set the file paths in the `config.yaml` file appropriately.
 3. Build the project:
    ```bash
    mkdir build && cd build

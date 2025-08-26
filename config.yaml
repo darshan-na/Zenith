@@ -1,4 +1,4 @@
-content: "content"
-output: "public"
-template: "src/templates"
-assets: "assets"
+content: "content"  # folder where content files are stored
+output: "public"  # folder where generated HTML files are stored
+template: "src/templates"  # folder where template files are stored
+assets: "assets"  # folder where asset(style.css and script.js) files are stored
