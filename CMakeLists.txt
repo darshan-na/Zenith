@@ -12,6 +12,8 @@ find_path(CMARK_GFM_INCLUDE_DIR cmark-gfm.h)
 find_library(TINYXML2_LIB NAMES tinyxml2 libtinyxml2)
 find_path(TINYXML2_INCLUDE_DIR tinyxml2.h)
 
+find_package(yaml-cpp REQUIRED)
+
 include_directories(${CMARK_GFM_INCLUDE_DIR} ${TINYXML2_INCLUDE_DIR})
 
 add_executable(zenith
@@ -23,4 +25,4 @@ add_executable(zenith
     src/utils.cpp
 )
 
-target_link_libraries(zenith PRIVATE ${CMARK_GFM_LIB} ${TINYXML2_LIB})
+target_link_libraries(zenith PRIVATE ${CMARK_GFM_LIB} ${TINYXML2_LIB} yaml-cpp)

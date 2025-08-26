@@ -1,0 +1,4 @@
+content: "content"
+output: "public"
+template: "src/templates"
+assets: "assets"
