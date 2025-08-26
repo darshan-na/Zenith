@@ -1,8 +1,8 @@
 :root {
     --bg-color: #fafafa; /* Soft off-white for light mode, inspired by Overreacted.io's clean look */
     --text-color: #222222; /* Deep gray for readability */
-    --link-color: #008080; /* Teal-blue accents, modern and calm (Jakob Greenfeld influence) */
-    --link-hover-color: #006666; /* Darker teal on hover */
+    --link-color: #027676; /* Teal-blue accents, modern and calm (Jakob Greenfeld influence) */
+    --link-hover-color: #025d5d; /* Darker teal on hover */
     --card-bg: #ffffff; /* Not used, but kept for compatibility */
     --card-shadow: rgba(0, 0, 0, 0.05); /* Subtle shadow if needed */
     --navbar-bg: #ffffff; /* White navbar for seamless blend */
@@ -16,7 +16,7 @@
     --tag-text: #ffffff; /* White text for contrast */
     --tag-hover-bg: #906621; /* Darker orange on hover */
     --tag-border: #b36e04;
-    --tech-color: #035a3d; /* Color for technologies used */
+    --tech-color: #013423; /* Color for technologies used */
 }
 
 [data-theme="dark"] {
@@ -126,24 +126,6 @@ ul.tag-list li {
     border: none;
 }
 
-.tag-button {
-    background-color: var(--tag-bg);
-    color: var(--tag-text);
-    border: 1px solid var(--tag-border);
-    border-radius: 20px; /* Pill shape for modern look */
-    padding: 0.4rem 1.2rem;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s;
-    min-width: 100px; /* Consistent width for alignment */
-    text-align: center;
-}
-
-.tag-button:hover {
-    background-color: var(--tag-hover-bg);
-    transform: scale(1.05); /* Slight zoom for interactivity */
-}
-
 ul {
     list-style: none;
     padding-left: 0;
@@ -172,6 +154,24 @@ ul li a {
 ul li a:hover {
     text-decoration: underline;
     color: var(--link-hover-color);
+}
+
+.tag-button {
+    background-color: var(--tag-bg);
+    color: var(--tag-text);
+    border: 1px solid var(--tag-border);
+    border-radius: 20px; /* Pill shape for modern look */
+    padding: 0.4rem 1.2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    min-width: 100px; /* Consistent width for alignment */
+    text-align: center;
+}
+
+.tag-button:hover {
+    background-color: var(--tag-hover-bg);
+    transform: scale(1.05); /* Slight zoom for interactivity */
 }
 
 .tags {
