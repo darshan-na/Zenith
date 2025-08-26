@@ -1,4 +1,4 @@
-content: "content"  # folder where content files are stored
-output: "public"  # folder where generated HTML files are stored
-template: "src/templates"  # folder where template files are stored
-assets: "assets"  # folder where asset(style.css and script.js) files are stored
+content: "content"  # folder where actual content files(markdown files) are stored
+output: "public"  # folder where the generated HTML files will be stored
+template: "src/templates"  # folder where template files are stored - do not modify this unless you would want to change the HTML of the website
+assets: "assets"  # folder where asset(style.css and script.js) files are stored - similary do not modify this unless the css and scripts.js need to be changed
