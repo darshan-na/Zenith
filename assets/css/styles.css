@@ -16,7 +16,7 @@
     --tag-text: #ffffff; /* White text for contrast */
     --tag-hover-bg: #906621; /* Darker orange on hover */
     --tag-border: #b36e04;
-    --tech-color: #013423; /* Color for technologies used */
+    --tech-color: #1c8260; /* Color for technologies used */
     --nav-toggle-color: #222222; /* dark text for light mode */
 }
 
@@ -231,7 +231,7 @@ ul li a:hover {
 }
 
 .technologies_used {
-    color: #157454; /* Change to any color you like */
+    color: var(--tech-color); /* Change to any color you like */
     font-weight: bold; /* Optional: make it stand out */
 }
 
