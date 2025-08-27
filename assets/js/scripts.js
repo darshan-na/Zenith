@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     html.setAttribute('data-theme', savedTheme);
     updateToggleIcon(savedTheme);
+    updateHighlightJS(savedTheme);
 
     // Toggle theme on button click
     toggleButton.addEventListener('click', function(e) {
@@ -15,9 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateToggleIcon(newTheme);
+        updateHighlightJS(newTheme);
     });
 
     function updateToggleIcon(theme) {
         toggleButton.textContent = theme === 'light' ? '🌙' : '🔆'; // Cool moon for dark, bright sun for light
+    }
+
+    function updateHighlightJS(theme) {
+        const darkThemeLink = document.getElementById('hljs-dark');
+        const lightThemeLink = document.getElementById('hljs-light');
+        if (theme === 'light') {
+            darkThemeLink.disabled = true;
+            lightThemeLink.disabled = false;
+        } else {
+            darkThemeLink.disabled = false;
+            lightThemeLink.disabled = true;
+        }
     }
 });

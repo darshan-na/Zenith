@@ -17,6 +17,7 @@
     --tag-hover-bg: #906621; /* Darker orange on hover */
     --tag-border: #b36e04;
     --tech-color: #013423; /* Color for technologies used */
+    --nav-toggle-color: #222222; /* dark text for light mode */
 }
 
 [data-theme="dark"] {
@@ -38,6 +39,7 @@
     --tag-hover-bg: #003366; /* Darker blue on hover */
     --tag-border: #004d99;
     --tech-color: #157454; /* Color for technologies used */
+    --nav-toggle-color: #ffffff; /* white text for dark mode */
 }
 
 body {
@@ -127,16 +129,12 @@ ul.tag-list li {
 }
 
 ul {
-    list-style: none;
-    padding-left: 0;
     border: none;
 }
 
 ul li {
-    margin-bottom: 2rem; /* More space between entries */
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--footer-border); /* Subtle separator */
-    border: none;
+    margin-bottom: 0;    /* no extra space */
+    padding-bottom: 0;   /* no extra padding */
 }
 
 ul li strong {
@@ -181,18 +179,27 @@ ul li a:hover {
     display: block;
 }
 
-/* Theme toggle icon (cool versions) */
+/* Theme toggle button */
 .theme-toggle {
-    font-size: 1.4rem; /* Larger for visibility */
+    font-size: 1.4rem;
     padding: 0.5rem;
-    border-radius: 50%; /* Circular button */
+    border-radius: 50%;
     background-color: transparent;
-    transition: transform 0.3s;
+    display: inline-block;       /* ensures it’s treated as a block for scaling */
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
+/* Wrap the icon in a span for hover animation */
+.theme-toggle span {
+    display: inline-block;
+    transition: transform 0.3s ease;
 }
+
+/* Hover effect */
+.theme-toggle:hover span {
+    transform: scale(1.1);
+    transform-origin: center;
+}
+
 
 .navbar-nav .nav-link {
     border: none !important;
@@ -227,3 +234,46 @@ ul li a:hover {
     color: #157454; /* Change to any color you like */
     font-weight: bold; /* Optional: make it stand out */
 }
+
+a::after {
+  content: " ↗";   /* or → */
+  font-size: 0.85em;
+  margin-left: 0.25em;
+  opacity: 0.7;     /* subtle look */
+}
+
+/* Don’t add arrow to theme toggle link */
+#theme-toggle::after {
+  content: none;
+}
+
+/* Navbar brand: no arrow, show underline instead */
+.navbar-brand::after {
+  content: none; /* remove arrow */
+}
+
+.navbar-brand {
+  text-decoration: underline;
+  text-underline-offset: 3px; /* nice spacing */
+  font-weight: bold; /* optional for emphasis */
+}
+
+.navbar-brand:hover::after {
+  content: " ↗";
+  font-size: 0.9em;
+  margin-left: 0.4em;
+  opacity: 0.8;
+}
+
+/* Remove Bootstrap’s default background-image */
+.navbar-toggler-icon {
+  background-image: none;
+}
+
+/* Replace with a symbol */
+.navbar-toggler-icon::before {
+  content: "☰"; /* hamburger (use "⋮" if you prefer vertical dots) */
+  font-size: 1.5rem;
+  color: var(--nav-toggle-color);
+}
+
