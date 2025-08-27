@@ -32,6 +32,7 @@ int main()
     std::string output_dir = config["output"];
     std::string template_dir = config["template"];
     std::string assets_dir = config["assets"];
+    std::string images_dir = config["images"];
 
     // remove the output/target directory if existing
     fs::remove_all(output_dir);
@@ -43,6 +44,9 @@ int main()
 
     // copy the css and scripts.js file
     FileUtils::copy_directory(assets_dir, output_dir + "/assets");
+
+    // copy images directory
+    FileUtils::copy_directory(images_dir, output_dir + "/images");
 
     // Initialize the page generator
     PageGenerator page_gen(template_dir);

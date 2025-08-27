@@ -1,8 +1,8 @@
 :root {
     --bg-color: #fafafa; /* Soft off-white for light mode, inspired by Overreacted.io's clean look */
     --text-color: #222222; /* Deep gray for readability */
-    --link-color: #027676; /* Teal-blue accents, modern and calm (Jakob Greenfeld influence) */
-    --link-hover-color: #025d5d; /* Darker teal on hover */
+    --link-color: #016565; /* Teal-blue accents, modern and calm (Jakob Greenfeld influence) */
+    --link-hover-color: #035050; /* Darker teal on hover */
     --card-bg: #ffffff; /* Not used, but kept for compatibility */
     --card-shadow: rgba(0, 0, 0, 0.05); /* Subtle shadow if needed */
     --navbar-bg: #ffffff; /* White navbar for seamless blend */
