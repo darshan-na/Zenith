@@ -15,16 +15,28 @@ void RSSGenerator::generate_rss(const std::vector<RSSItem>& items, const std::st
     rss->InsertEndChild(channel);
 
     auto* title = doc.NewElement("title");
-    title->SetText("My Personal Blog");
+    title->SetText("Darshan's Personal Blog");
     channel->InsertEndChild(title);
 
     auto* link = doc.NewElement("link");
-    link->SetText("https://yoursite.com");
+    link->SetText("https://www.darshanna.com");
     channel->InsertEndChild(link);
 
     auto* description = doc.NewElement("description");
-    description->SetText("My personal blog posts");
+    description->SetText("Darshan's personal blog posts");
     channel->InsertEndChild(description);
+
+    auto* language = doc.NewElement("language");
+        language->SetText("en-us");
+        channel->InsertEndChild(language);
+
+      auto* lastBuildDate = doc.NewElement("lastBuildDate");
+        lastBuildDate->SetText(format_rfc822_date(std::time(nullptr)).c_str());
+        channel->InsertEndChild(lastBuildDate);
+
+    auto* ttl = doc.NewElement("ttl");
+        ttl->SetText("60");  // cache duration in minutes
+        channel->InsertEndChild(ttl);
 
     for (const auto& item : items) {
         auto* item_element = doc.NewElement("item");
@@ -45,6 +57,11 @@ void RSSGenerator::generate_rss(const std::vector<RSSItem>& items, const std::st
         auto* item_pub_date = doc.NewElement("pubDate");
         item_pub_date->SetText(item.pub_date.c_str());
         item_element->InsertEndChild(item_pub_date);
+
+        auto* item_guid = doc.NewElement("guid");
+            item_guid->SetAttribute("isPermaLink", "true");
+            item_guid->SetText(item.link.c_str());
+            item_element->InsertEndChild(item_guid);
     }
 
     tinyxml2::XMLPrinter printer;

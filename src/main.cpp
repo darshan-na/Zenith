@@ -101,7 +101,7 @@ int main()
             // RSS
             rss_items.push_back({metadata["title"],
                                  metadata["description"],
-                                 "https://yoursite.com/blogs/" + slug + ".html",
+                                 "https://darshanna.com/blogs/" + slug + ".html",
                                  metadata["date"]});
 
             // Collect tags
